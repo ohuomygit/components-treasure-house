@@ -8,7 +8,7 @@
         <div slot="header" class="card-header">
             <span >{{data.tiltle}}</span>
             <el-tooltip effect="dark" :content="data.describe" placement="top">
-                <i class="el-icon-info"></i>
+                <i class="el-icon-info" v-if="data.describe"></i>
             </el-tooltip>
         </div>
         <div 

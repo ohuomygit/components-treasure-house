@@ -1,80 +1,39 @@
 <template>
   <div class="expense">
-    <div class="title">花费分析页面</div>
-    <CarouselPage>
-      <ExpenseCard :data="monthData" />
-      <ExpenseCard :data="seasonData" />
-      <ExpenseCard :data="yearData" />
-    </CarouselPage>
-    <el-table
-      :data="monthlyCostData"
-      style="width: 100%">
-      <el-table-column
-        v-for="(item, index) in tabelHeader"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label"
-        :fixed="(item.prop === 'date') ? 'left' : false" 
-      >
-      </el-table-column>
-    </el-table>
-    <div>
-      {{`${expenseTotal.total}(每年的总花费) = ${expenseTotal.monthTotal}(每月的必要支出)*12+${expenseTotal.seasonTotal}(每季的必要支出)*4+${expenseTotal.seasonTotal}(每年的必要支出)*1`}}<br />
-      {{`每月的平均花费为：${(expenseTotal.total /12).toFixed(2)}`}}
-    </div>
+    <div class="title"><span>花费分析页面</span></div>
+
+    <PartCard title="花费预算">
+      <ExpenseBudget />
+    </PartCard>
+
+    <PartCard title="账单流水">
+      <BillLine />
+    </PartCard>
+
+    <PartCard title="用度分析">
+      <ExpenseAnalyse />
+    </PartCard>
+
   </div>
 </template>
 
 <script>
-import {getMonthData, getSeasonData, getYearData, getMonthlyCostData} from './config'
-import CarouselPage from '@/components/CarouselPage.vue'
-import ExpenseCard from './components/ExpenseCard.vue'
+import PartCard from '@/components/PartCard.vue'
+import ExpenseBudget from './part/ExpenseBudget.vue'
+import BillLine from './part/BillLine.vue'
+import ExpenseAnalyse from './part/ExpenseAnalyse.vue'
+
 export default {
     name: 'ExpensePage', 
     components: {
-      CarouselPage,
-      ExpenseCard,
-    },
-    data() {
-      return {
-        monthData: getMonthData(),
-        seasonData: getSeasonData(),
-        yearData: getYearData(),
-      }
+      PartCard,
+      ExpenseBudget,
+      BillLine,
+      ExpenseAnalyse,
     },
     computed: {
-      expenseTotal() {
-        let monthTotal = this.monthData.list.reduce((prev, item) => {return prev + item.value} ,0)
-        let seasonTotal = this.seasonData.list.reduce((prev, item) => {return prev + item.value} ,0)
-        let yearTotal = this.yearData.list.reduce((prev, item) => {return prev + item.value} ,0)
-        let total = monthTotal * 12 + seasonTotal * 4 + yearTotal
-        return {
-          monthTotal,
-          seasonTotal,
-          yearTotal,
-          total
-        }
-      },
-      tabelHeader() {
-        return [
-          {
-            label: "时间",
-            prop: 'date',
-            value: 0,
-            tip: ''
-          },
-          ...this.monthData.list,
-          ...this.seasonData.list,
-          ...this.yearData.list,
-          // {
-          //   label: "其他",
-          //   prop: 'other',
-          //   value: 0,
-          //   tip: ''
-          // }
-        ]
-      },
-      monthlyCostData() {
+      /*
+      xxx() {
         const list = getMonthlyCostData()
         let springData = {}
         let summerData = {}
@@ -141,6 +100,7 @@ export default {
         })
         return list
       }
+      */
     }
 }
 </script>
@@ -150,7 +110,8 @@ export default {
   .title{
     font-size: 32px;
     line-height: 32px;
-    margin-bottom: 16px;
+    margin:0px auto 16px;
+    text-align: center;
   }
 }
-</style>>
+</style>

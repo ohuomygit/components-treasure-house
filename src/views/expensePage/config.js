@@ -43,7 +43,7 @@ export const getSeasonData = () => {
         describe: '2~4月为春季，5~7月为夏季，8~10月为秋季，11~1月为冬季。',
         list: [
           {
-            label: "生活日66666666666  用",
+            label: "生活日用",
             prop: 'everydayUse',
             value: 1000,
             tip: '洗漱用品（牙膏、牙刷）+洗浴用品（毛巾、沐浴露、洗发水、清洗剂）+清洁用品（洗衣粉、清洁剂等）+日用品（刮胡刀、花露水、润肤油等）'
@@ -70,34 +70,34 @@ export const getYearData = () => {
             tip: '800（眼镜）+500（全面体检）+200（洗牙）+1000（其他）'
           },
           {
-            label: "电子产品",//购物
-            prop: 'electronicProduct',
-            value: 10000,
-            tip: '3000（手机）+2000（平板电脑）+5000（电脑、笔记本电脑、电子手表、电子称、电子词典、其他电子产品、电子游戏等）'
-          },
-          {
-            label: "旅游",//文体教育
-            prop: 'tour',
-            value: 4000,
-            tip: '礼物+礼金+红包+旅游+其他不明账单'
-          },
-          {
-            label: "礼物礼金",//红包
-            prop: 'gift',
-            value: 8000,
-            tip: '礼物+礼金+红包+旅游+其他不明账单'
-          },
-          {
             label: "回家路费",//其他支出
             prop: 'HomeFare',
             value: 1500,
             tip: '1000（高铁票500 * 2次）+200（大巴车费100 * 2次）+40(出租车20 * 2次) + 260（其他）'
           },
           {
+            label: "电子产品",//购物
+            prop: 'electronicProduct',
+            value: 10000,
+            tip: '3000（手机）+2000（平板电脑）+5000（电脑、笔记本电脑、电子手表、电子称、电子词典、其他电子产品、电子游戏等）'
+          },
+          {
             label: "搬家费用", //其他支出
             prop: 'houseMovingCost',
             value: 3000,
             tip: '1000（搬家费500 * 2次）+2000（日用家居）'
+          },
+          {
+            label: "旅游",//文体教育
+            prop: 'tour',
+            value: 0,
+            tip: '4000（旅游X * N次）'
+          },
+          {
+            label: "礼物礼金",//红包
+            prop: 'gift',
+            value: 0,
+            tip: '礼物+礼金+红包'
           },
           {
             label: "其他",//其他支出
@@ -245,7 +245,7 @@ export const getMonthlyCostData = () => {
       other: 515.3
     },
     //8月
-     {
+    {
       roomWECharge: 1700.25,//住房服务
       eatAndDrink: 1706.53,//吃喝
       goOut: 317.8,//出行
@@ -261,7 +261,87 @@ export const getMonthlyCostData = () => {
       houseMovingCost: 0, //搬家费用
       other: 0
     },
+    //9月
+    {
+      roomWECharge: 1670.5,//住房服务
+      eatAndDrink: 1689.18,//吃喝
+      goOut: 233,//出行
+      paymentAndHaircut: 104.23,//充值缴费剪头
+      everydayUse: 113.57,//日用品
+      amusement: 2468,//休闲娱乐
+      clothing: 0,//服装
+      HomeFare: 0,//回家路费
+      MedicalHealth: 0,//医疗健康
+      electronicProduct: 13.5,//电子产品
+      tour: 0, //旅游-文体教育
+      gift: 76, //礼品-红包
+      houseMovingCost: 0, //搬家费用
+      other: 0
+    },
   ]
 }
 
-
+export const getMonth = () => {
+  return [
+    {
+      label:'二月',
+      isClick: false,
+      isLive: true,
+    },
+    {
+      label:'三月',
+      isClick: false,
+      isLive: true,
+    },
+    {
+      label:'四月',
+      isClick: false,
+      isLive: true,
+    },
+    {
+      label:'五月',
+      isClick: false,
+      isLive: true,
+    },
+    {
+      label:'六月',
+      isClick: false,
+      isLive: true,
+    },
+    {
+      label:'七月',
+      isClick: false,
+      isLive: true,
+    },
+    {
+      label:'八月',
+      isClick: false,
+      isLive: true,
+    },
+    {
+      label:'九月',
+      isClick: true,
+      isLive: true,
+    },
+    {
+      label:'十月',
+      isClick: false,
+      isLive: false,
+    },
+    {
+      label:'十一月',
+      isClick: false,
+      isLive: false,
+    },
+    {
+      label:'十二月',
+      isClick: false,
+      isLive: false,
+    },
+    {
+      label:'一月',
+      isClick: false,
+      isLive: false,
+    },
+  ]
+}
